@@ -11,12 +11,8 @@ class Router{
 
     public static function start(){
 		$url = isset($_GET["url"]) ? $_GET["url"] : null;
-	    
-		$url = rtrim($url, "/");
-
-		$url = explode("/", $url);
 		
-		if (empty($url[0])) {
+		if (empty($url)) {
 
 			$fileName="controllers/homeController.php";
 			require_once ($fileName);
@@ -25,9 +21,9 @@ class Router{
 			$controlador->render('index');
 			return false;
 		}
-		if(isset(self::$routes[$url[0]])){
+		if(isset(self::$routes[$url])){
 				
-				$rout = explode('/',self::$routes[$url[0]]);
+				$rout = explode('/',self::$routes[$url]);
 
 				$fileName = "controllers/" . $rout[0] .".php";
 		}
