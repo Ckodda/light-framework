@@ -1,0 +1,18 @@
+{
+    "sites": [{
+            "site": "",
+            "access": "public",
+            "role": ""
+        },
+        {
+            "site": "home",
+            "access": "public",
+            "role": ""
+        }
+    ],
+
+    "default-sites": [{
+        "site": "",
+        "role": ""
+    }]
+}
