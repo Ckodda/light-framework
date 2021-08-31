@@ -9,7 +9,6 @@ class ErrorsController extends Controller
     function render()
     {
         $this->view->renderView("errors/index");
-        
     }
 }
 ?>

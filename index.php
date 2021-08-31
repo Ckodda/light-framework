@@ -1,5 +1,4 @@
 <?php
-
 error_reporting(E_ALL);
 
 ini_set('ignore_repeated_errors', TRUE);
@@ -20,9 +19,8 @@ require_once ('controllers/sessionController.php');
 require_once ('libs/view.php');
 require_once ('libs/model.php');
 
-require_once ('libs/router.php');
+require_once ('libs/Router/RouteNotFoundException.php');
+require_once ('libs/Router/Route.php');
+require_once ('libs/Router/Router.php');
 require_once ('libs/routes.php');
-
-Router::start();
-
 ?>

@@ -47,9 +47,6 @@ class Router{
 				}else{
 					$controlador = new ErrorsController();
 					$controlador->render();
-					//error no existe el metodo
-					//$controlador = new ErroresController();
-					//$controlador->render("");
 				}
 
 			}else{

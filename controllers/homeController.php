@@ -16,8 +16,8 @@ class HomeController extends Controller{
         $this->view->renderFooter();
     }
 
-    public function hello(){
-        echo "Este es el método hello";
+    public function hello($name,$years){
+        echo "Hello ".$name." you are ".$years." years old";
     }
 }
 ?>

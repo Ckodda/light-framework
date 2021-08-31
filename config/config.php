@@ -1,7 +1,7 @@
 <?php
-
-define("directorio",$_SERVER['DOCUMENT_ROOT']."/light-framework/");
-define("url","http://localhost/light-framework/");
+define("PROJECT_NAME","light-framework");
+define("DIRECTORY",$_SERVER['DOCUMENT_ROOT']."/".PROJECT_NAME."/");
+define("URL",$_SERVER['HTTP_HOST']."/".PROJECT_NAME."/");
 define("__dirname_errors_log", "logs\php_errors_log.log");
 define("SERVER","locahost");
 define("DB","database");
