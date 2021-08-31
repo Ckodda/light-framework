@@ -10,6 +10,11 @@ $router->add('/say-hello/([a-zA-Z]+)-([0-9]+)',function($name,$years){
     $homeController = new HomeController();
     $homeController->hello($name,$years);
 });
+$router->add('/say-goodBye/([a-zA-Z]+)-([0-9]+)',function($name,$years){
+    require 'controllers/homeController.php';
+    $homeController = new HomeController();
+    $homeController->goodBye($name,$years);
+});
 $router->add('/(.*)', function() {
     require 'controllers/errorsController.php';
     $errorsController = new ErrorsController();

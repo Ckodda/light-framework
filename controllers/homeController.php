@@ -19,5 +19,9 @@ class HomeController extends Controller{
     public function hello($name,$years){
         echo "Hello ".$name." you are ".$years." years old";
     }
+
+    public function goodBye($name,$years){
+        echo "See you ".$name." on ".$years." years";
+    }
 }
 ?>
