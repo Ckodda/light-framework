@@ -1,4 +1,5 @@
 <?php
+use Controller\Class\Controller;
 class HomeController extends Controller{
 
     public function __construct()

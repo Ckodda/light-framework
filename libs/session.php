@@ -1,4 +1,5 @@
 <?php
+namespace Session\Class;
 class Session
 {
     private $sessionname = "user";
