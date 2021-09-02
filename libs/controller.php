@@ -21,6 +21,10 @@ class Controller
         
     }
 
+    public function callChild($child){
+        require 'controllers/'.$child.'.php';
+        return new $child();
+    }
 
     /*****
     *   Validación si existe petición Ajax 
