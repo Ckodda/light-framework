@@ -21,4 +21,5 @@ require_once ('libs/Router/RouteNotFoundException.php');
 require_once ('libs/Router/Route.php');
 require_once ('libs/Router/Router.php');
 require_once ('libs/routes.php');
+echo true;
 ?>
