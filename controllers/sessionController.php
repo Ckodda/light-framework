@@ -7,8 +7,6 @@
  * 
  * --- se recomienda que en todo el proceso de pruebas se haga uso de error_log("mensaje ... ??"); para hacer un seguimiento del flujo
  */
-use Controller\Class\Controller;
-use Session\Class\Session;
 class SessionController extends Controller
 {
     protected $session;

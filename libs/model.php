@@ -1,5 +1,4 @@
 <?php
-namespace Model\Class;
 class Model
 {
     function __construct()
@@ -13,6 +12,17 @@ class Model
         $nombre = $nombre."Model";
         $model = new $nombre();
         return $model;
+    }
+    
+    public function query($sql,$params,$methodFind){
+        $db = new Database();
+        $cnx = $db->connect();
+        $stmt = $cnx->prepare($sql);
+        foreach($params as $param){
+            $stmt->bindValue($param[0],$param[1],$param[2]);
+        }
+        $stmt->execute();
+        return $stmt->{$methodFind}();
     }
 }
 ?>

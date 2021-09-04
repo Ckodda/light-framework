@@ -1,5 +1,4 @@
 <?php
-use Controller\Class\Controller;
 class HomeController extends Controller{
 
     public function __construct()
@@ -23,6 +22,10 @@ class HomeController extends Controller{
 
     public function goodBye($name,$years){
         echo "See you ".$name." on ".$years." years";
+    }
+    public function usersList(){
+        $usersModel = $this->model->loadModel('user');
+        echo json_encode($usersModel->getAllUsers());
     }
 }
 ?>

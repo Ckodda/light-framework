@@ -1,5 +1,4 @@
 <?php
-namespace View\Class;
 class View
 {
     public $meta= [];

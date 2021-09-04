@@ -23,7 +23,7 @@ class UserModel extends Model
         parent::__construct();    
     }
     
-    function authenticate()
+    public function authenticate()
     {
         $bd = new Database();
 
@@ -43,6 +43,12 @@ class UserModel extends Model
         
 
         return $res;
+    }
+    public function getAllUsers(){
+        $params = [
+            ["email","%%",PDO::PARAM_STR]
+        ];
+        return $this->query("SELECT * FROM users WHERE user_email LIKE :email",$params,'fetchAll');
     }
 }
 ?>

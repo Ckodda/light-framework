@@ -1,9 +1,4 @@
 <?php
-namespace Controller\Class;
-require_once('libs/view.php');
-require_once('libs/model.php');
-use View\Class\View;
-use Model\Class\Model;
 /**
  *  CLASE CONTROLLER PADRE 
  */
