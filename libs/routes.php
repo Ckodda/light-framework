@@ -14,7 +14,7 @@ $router->add('/',function(){
 
 
 $router->add('/say-hello/([a-zA-Z]+)-([0-9]+)',function($name,$years){
-    $MasterController =new Controller();
+    $MasterController = new Controller();
     $homeController  = $MasterController->callChild('homeController');
     $homeController->hello($name,$years);
 });
@@ -26,6 +26,11 @@ $router->add('/say-bye/([a-zA-Z]+)-([0-9]+)',function($name,$years){
     $homeController->goodBye($name,$years);
 });
 
+$router->add('/users',function(){
+    $MasterController = new Controller();
+    $homeController  = $MasterController->callChild('homeController');
+    $homeController->usersList();
+});
 
 $router->add('/(.*)', function() {
     $MasterController = new Controller();
