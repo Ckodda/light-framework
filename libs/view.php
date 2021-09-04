@@ -16,6 +16,7 @@ class View
 
     function renderView($nombre,$data=[])
     {
+        $this->smarty->assign('URL',URL);
         foreach($data as $d){
             $this->smarty->assign($d[0],$d[1]);
         }

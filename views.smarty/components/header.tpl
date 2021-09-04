@@ -1,0 +1,1 @@
+<link rel="preload" href="{$URL}src/css/bootstrap.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"/>

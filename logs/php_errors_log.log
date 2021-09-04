@@ -1,1 +1,2 @@
-[04-Sep-2021 20:28:49 Europe/Berlin] DATABASE :: connect() => Retornando objeto de conexion exitosa
+[04-Sep-2021 20:47:18 Europe/Berlin] PHP Fatal error:  Uncaught  --> Smarty Compiler: Syntax error in template "file:C:\xampp\htdocs\light-framework\views.smarty\index.tpl"  on line 3 "{inlude file="components/header.tpl"}" unknown tag 'inlude' <-- 
+  thrown in C:\xampp\htdocs\light-framework\libs\Smarty\libs\sysplugins\smarty_internal_templatecompilerbase.php on line 3
