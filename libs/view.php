@@ -1,4 +1,5 @@
 <?php
+require_once ('Smarty/libs/Smarty.class.php');
 class View
 {
     public $meta= [];
@@ -6,22 +7,28 @@ class View
     function __construct()
     {
         
+        $this->smarty = new Smarty();
+        $this->smarty->template_dir = "./views.smarty";
+        //$smarty->config_dir = "./configs";
+        $this->smarty->cache_dir = "./cache";
+        $this->smarty->compile_dir = "./views.compiled";
     }
 
-    function renderView($nombre)
+    function renderView($nombre,$data=[])
     {
-
-        require('views/'.$nombre.'.php');
-        
+        foreach($data as $d){
+            $this->smarty->assign($d[0],$d[1]);
+        }
+        $this->smarty->display($nombre);   
     }
 
     function renderHeader($meta=[]){
         $this->meta = $meta;
-        require_once('views/header.php');
+        //require_once('views/header.php');
     }
     
     function renderFooter(){
-            require_once('views/footer.php');
+        //require_once('views/footer.php');
     }
     
     function isAjaxRequestToSpa(){

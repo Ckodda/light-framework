@@ -1,1 +1,0 @@
-<h1>Esta es la vista del método 'render' de HomeController</h1>

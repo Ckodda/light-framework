@@ -7,15 +7,8 @@ class HomeController extends Controller{
     }
     public function render()
     {
-        $this->view->renderHeader([
-            "LightFramework",
-            "This is a meta description for this URL",
-            "keywords, LightFramework"
-        ]);
-        $this->view->renderView('home/index');
-        $this->view->renderFooter();
+        $this->view->renderView('index.tpl',[['mensaje','Bienvenidos a LightFramework - este es una vista compilada por Smarty 3']]);
     }
-
     public function hello($name,$years){
         echo "Hello ".$name." you are ".$years." years old";
     }
@@ -25,7 +18,8 @@ class HomeController extends Controller{
     }
     public function usersList(){
         $usersModel = $this->model->loadModel('user');
-        echo json_encode($usersModel->getAllUsers());
+        $users = $usersModel->getAllUsers();
+        $this->view->renderView('users.tpl',[['users',$users]]);
     }
 }
 ?>
