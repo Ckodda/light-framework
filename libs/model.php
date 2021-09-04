@@ -1,5 +1,4 @@
 <?php
-namespace Model\Class;
 class Model
 {
     function __construct()
