@@ -1,1 +1,1 @@
-<link rel="preload" href="{$URL}src/css/tailwind.css" as="style" onload="this.onload=null;this.rel='stylesheet'"/>
+<link rel="stylesheet" href="{$URL}src/css/tailwind.min.css" />

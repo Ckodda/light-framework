@@ -12,6 +12,9 @@ class View
         //$smarty->config_dir = "./configs";
         $this->smarty->cache_dir = "./cache";
         $this->smarty->compile_dir = "./views.compiled";
+
+        //Minificando salida
+        $this->smarty->loadFilter('output', 'trimwhitespace');
         $this->smarty->assign('URL',URL);
     }
 
