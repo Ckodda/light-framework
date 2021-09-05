@@ -24,3 +24,5 @@ ErrorDocument 403 <h1>404</h1>
 ---
 Para el Ruteamiento se ha hecho uso de una Librería llamada php-router
 Derechos reservados a Emilio autor del repositorio https://github.com/emilio/php-router
+--- 
+Para los estilos se hace uso de tailwind

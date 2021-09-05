@@ -1,15 +1,15 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-    {inlude file="components/header.tpl"}
 <head>
+  <!-- ... -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  {include file="components/header.tpl"}
+</head>
+<body>
+    <h1 class="w-full">{$mensaje}</h1>
+    
 
-    <head>
-
-    <body>
-
-        <h1>
-            {$mensaje}
-        </h1>
-    </body>
-
+</body>
+{include file="components/footer.tpl"}
 </html>

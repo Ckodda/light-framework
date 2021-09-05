@@ -12,11 +12,12 @@ class View
         //$smarty->config_dir = "./configs";
         $this->smarty->cache_dir = "./cache";
         $this->smarty->compile_dir = "./views.compiled";
+        $this->smarty->assign('URL',URL);
     }
 
     function renderView($nombre,$data=[])
     {
-        $this->smarty->assign('URL',URL);
+        
         foreach($data as $d){
             $this->smarty->assign($d[0],$d[1]);
         }

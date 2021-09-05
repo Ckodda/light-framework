@@ -8,7 +8,7 @@ class ErrorsController extends Controller
 
     function render()
     {
-        $this->view->renderView("errors/index");
+        $this->view->renderView("errors/index.tpl");
     }
 }
 ?>
