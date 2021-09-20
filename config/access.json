@@ -5,14 +5,24 @@
             "role": ""
         },
         {
-            "site": "home",
-            "access": "public",
-            "role": ""
-        }
+            "site": "home-user",
+            "access": "private",
+            "role": "user"
+        },{
+        "site": "dashboard",
+        "access": "private",
+        "role": "admin"
+      }
     ],
 
     "default-sites": [{
         "site": "",
         "role": ""
+    },{
+      "site": "dashboard",
+      "role": "admin"
+    },{
+      "site": "home-user",
+      "role": "user"
     }]
 }

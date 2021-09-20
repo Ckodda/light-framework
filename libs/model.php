@@ -1,6 +1,6 @@
 <?php
 namespace Libs;
-use Database;
+use Libs\Database;
 
 class Model
 {

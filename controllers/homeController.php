@@ -1,5 +1,5 @@
 <?php
-
+namespace Controllers;
 use Libs\Controller;
 
 class HomeController extends Controller{

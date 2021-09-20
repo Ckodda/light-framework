@@ -1,6 +1,7 @@
 <?php
-
+namespace Controllers;
 use Libs\Controller;
+use Libs\Session;
 
 /**
  * CLASE SessionController Hijo de clase padre Controller ///USAR extends SessionController en los controladores hijos si es que la seccion debe ser administrada por la sesion
@@ -16,16 +17,19 @@ class SessionController extends Controller
     protected $role;
     protected $sites;
     protected $defaultSites;
-    protected $keyUrl=2;
+    protected $keyUrl;
     protected $url;
 
     public function __construct()
     {
         parent::__construct();
-        $this->start();
-        if(PROJECT_NAME==""){
-            $this->keyUrl=1;
+        if(PROJECT_NAME=="") {
+            $this->keyUrl = 1;
+        }else{
+            $this->keyUrl = 2;
         }
+        $this->start();
+
         if($this->session->existsUserSession()){ $this->view->sessionValidate = true;}else{$this->view->sessionValidate = false;}
         
     }
@@ -45,6 +49,7 @@ class SessionController extends Controller
         $this->url = trim("$_SERVER[REQUEST_URI]");
         $this->url = explode("/",$this->url);
         $this->url = $this->url[$this->keyUrl]; // localhost/chinawok/url[2]
+        error_log("Se quiere ingresar a esta url => ".$this->url);
         $this->url = preg_replace("/\?.*/","",$this->url);
 
         //validar session existente $_SESSION['user']
@@ -62,7 +67,7 @@ class SessionController extends Controller
             if($tiempoTranscurrido>=600){
                 error_log("SESSIONCONTROLLER :: start() => Han pasado 3 minutos de inactividad");
                 $this->session->closeSession();
-                header("Location: ".constant('url'));
+                header("Location: ".URL);
             }else{
                 //error_log("SESSIONCONTROLLER :: start() => Aun HAY actividad");
                 $this->session->setUserSessiontemp($fechaActual);
@@ -120,7 +125,7 @@ class SessionController extends Controller
                 }else if($this->sites[$i]["site"] == $this->url && $this->sites[$i]["access"]=='private'){
                     //Sitio actual es privado
                     //Redirigiendo a index ya que la pagina a la que se quiere ir es privada
-                    header("Location: ".constant("url"));
+                    header("Location: ".URL);
                 }
 
             }
@@ -155,7 +160,7 @@ class SessionController extends Controller
 
         //error_log("Redirigiendo a ".$url);
 
-        header("Location:".constant('url').$url."/",TRUE,301);
+        header("Location:".URL.$url."/",TRUE,301);
 
     }
 

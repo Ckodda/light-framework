@@ -25,4 +25,25 @@ ErrorDocument 403 <h1>404</h1>
 Para el Ruteamiento se ha hecho uso de una Librería llamada php-router
 Derechos reservados a Emilio autor del repositorio https://github.com/emilio/php-router
 --- 
-Para los estilos se hace uso de tailwind
+
+##La version dev-v2.0
+NO CUENTA CON MOTOR DE PLANTILLAS, pero mantiene el patrón
+y añade una nueva funcionalidad para precargar las clases
+cuando se requieran con la clase Loader en autoload.php 
+```
+use {directorio}\{clase}
+
+namespace {directorio_actual_de_la_clase}
+-----------
+-> supongamos que existe una clase en el directorio 'models/'
+
+namespace Models;
+
+class MyClass{
+    /*****/
+}
+
+-> Al momento de usarlo en otra clase 
+use Models\MyClass;
+
+```

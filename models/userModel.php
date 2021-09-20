@@ -1,25 +1,38 @@
 <?php
 
+namespace Models;
+
+use Libs\Database;
 use Libs\Model;
+use PDO;
 
 class UserModel extends Model
 {
     private $id;
-    private $username;
-    private $userpassword;
-    private $userrole;
+    private $user;
+    private $email;
+    private $name;
+    private $password;
+    private $role;
 
     public function getId(){ return $this->id;}
     public function setId($id){ $this->id=$id;}
 
-    public function getUsername(){ return $this->username;}
-    public function setUsername($username){ $this->username=$username;}
+    public function getUser(){ return $this->user;}
+    public function setUser($user){ $this->user=$user;}
 
-    public function getUserpassword(){ return $this->userpassword;}
-    public function setUserpassword($userpassword){ $this->userpassword=$userpassword;}
+    public function getEmail(){ return $this->email;}
+    public function setEmail($email){ $this->email=$email;}
 
-    public function getUserrole(){ return $this->userrole;}
-    public function setUserrole($userrole){ $this->userrole=$userrole;}
+    public function getName(){ return $this->name;}
+    public function setName($name){ $this->name=$name;}
+
+
+    public function getPassword(){ return $this->password;}
+    public function setPassword($password){ $this->password=$password;}
+
+    public function getRole(){ return $this->role;}
+    public function setRole($role){ $this->role=$role;}
 
     function __construct()
     {
@@ -32,14 +45,13 @@ class UserModel extends Model
 
         $cnx = $bd->connect();
 
-        $stmt = $cnx->prepare("SELECT u.nombre, u.clave, r.rol_usuario
-        FROM usuario AS u
-        INNER JOIN rol_usuario AS r
-        ON u.idRol = r.id
-        WHERE nombre = :username AND clave = :userpassword;");
-        
-        $stmt->bindValue(":username",$this->username);
-        $stmt->bindValue(":userpassword",$this->userpassword);
+
+
+        $stmt = $cnx->prepare("SELECT email,password,role FROM user WHERE email=:email and password = :password");
+
+
+        $stmt->bindValue(":email",$this->email);
+        $stmt->bindValue(":password",sha1($this->password));
         $stmt->execute();
 
         $res = $stmt->fetch();
