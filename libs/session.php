@@ -4,6 +4,8 @@ class Session
 {
     private $sessionname = "user";
     private $sessiontemp = "fechaSession";
+    private $sessionAlias = "aliasName";
+
     public function __construct()
     {
         if (session_status() == PHP_SESSION_NONE) {
@@ -36,6 +38,12 @@ class Session
         return $_SESSION[$this->sessiontemp];
     }
 
+    function setUserAlias($alias){
+        $_SESSION[$this->sessionAlias]=$alias;
+    }
+    function getUserAlias(){
+        return $_SESSION[$this->sessionAlias];
+    }
 
     function closeSession()
     {

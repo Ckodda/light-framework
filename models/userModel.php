@@ -47,7 +47,7 @@ class UserModel extends Model
 
 
 
-        $stmt = $cnx->prepare("SELECT email,password,role FROM user WHERE email=:email and password = :password");
+        $stmt = $cnx->prepare("SELECT name,email,password,role FROM user WHERE email=:email and password = :password");
 
 
         $stmt->bindValue(":email",$this->email);
@@ -55,15 +55,19 @@ class UserModel extends Model
         $stmt->execute();
 
         $res = $stmt->fetch();
-        
-
         return $res;
     }
-    public function getAllUsers(){
+    public function findUserByEmail($email){
         $params = [
-            ["email","%%",PDO::PARAM_STR]
+            ["email","%".$email."%",PDO::PARAM_STR]
         ];
         return $this->query("SELECT * FROM user WHERE user_email LIKE :email",$params,'fetchAll');
+    }
+
+    public function  getAllUsers(){
+
+        return $this->query("SELECT * FROM user ",[],'fetchAll');
+
     }
 }
 ?>

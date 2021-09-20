@@ -11,8 +11,12 @@ class HomeUserController extends SessionController
     }
 
     public  function render(){
-        $this->view->renderView('home/index');
+        $alias = $this->session->getUserAlias();
+        $this->view->renderView('home/index',[
+            'alias'=>$alias
+        ]);
     }
+
 
     public function close()
     {

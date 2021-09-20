@@ -24,6 +24,7 @@ class LoginController extends SessionController
             if($rs>0){
 
                 $this->session->setUserSessionName($rs['role']);
+                $this->session->setUserAlias($rs['name']);
                 $this->session->setUserSessiontemp(date("Y-n-j H:i:s"));
                 if($rs['role']=='admin'){
                     header('Location: '.URL."dashboard/");

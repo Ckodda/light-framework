@@ -2,6 +2,9 @@
 
 namespace Controllers;
 
+
+use Models\UserModel;
+
 class DashboardController extends SessionController
 {
 
@@ -10,7 +13,18 @@ class DashboardController extends SessionController
         parent::__construct();
     }
     public function render(){
-        $this->view->renderView("admin/index");
+        $users = $this->getAllUsers();
+        $aliasname = $this->session->getUserAlias();
+        $this->view->renderView("admin/index",[
+            "users"=>$users,
+            "alias"=>$aliasname
+        ]);
+    }
+
+    public function getAllUsers()
+    {
+        $userModel = new UserModel();
+        return $userModel->getAllUsers();
     }
 
     public function close()
