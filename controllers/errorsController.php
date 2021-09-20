@@ -1,4 +1,7 @@
 <?php
+
+use Libs\Controller;
+
 class ErrorsController extends Controller
 {
     function __construct()

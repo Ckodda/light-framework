@@ -1,4 +1,7 @@
 <?php
+
+use Libs\Controller;
+
 class HomeController extends Controller{
 
     public function __construct()
@@ -7,7 +10,7 @@ class HomeController extends Controller{
     }
     public function render()
     {
-        $this->view->renderView('index.tpl',[['mensaje','Bienvenidos a LightFramework - este es una vista compilada por Smarty 3']]);
+        $this->view->renderView('index',['mensaje'=>'Bienvenidos a LightFramework']);
     }
     public function hello($name,$years){
         echo "Hello ".$name." you are ".$years." years old";
@@ -19,7 +22,7 @@ class HomeController extends Controller{
     public function usersList(){
         $usersModel = $this->model->loadModel('user');
         $users = $usersModel->getAllUsers();
-        $this->view->renderView('users.tpl',[['users',$users]]);
+        $this->view->renderView('users',['users'=>$users]);
     }
 }
 ?>

@@ -1,4 +1,7 @@
 <?php
+namespace Libs;
+use Database;
+
 class Model
 {
     function __construct()
@@ -23,6 +26,9 @@ class Model
         }
         $stmt->execute();
         return $stmt->{$methodFind}();
+    }
+    public  function hello(){
+        echo "hello";
     }
 }
 ?>

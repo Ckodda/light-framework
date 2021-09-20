@@ -1,4 +1,5 @@
 <?php
+namespace Libs;
 class Session
 {
     private $sessionname = "user";

@@ -6,17 +6,17 @@ ini_set('display_errors', FALSE);
 ini_set('log_errors', TRUE);
 
 require_once ('config/config.php');
-
-
+require_once('autoloader.php');
+Loader::init();
 ini_set('error_log', __dirname_errors_log);
-require_once ('libs/database.php');
-require_once ('libs/session.php');
+//require_once ('libs/database.php');
+//require_once ('libs/session.php');
 
 
-require_once ('libs/view.php');
-require_once ('libs/model.php');
-require_once ('libs/controller.php');
-require_once ('controllers/sessionController.php');
+//require_once ('libs/view.php');
+//require_once ('libs/model.php');
+//require_once ('libs/controller.php');
+//require_once ('controllers/sessionController.php');
 
 require_once ('libs/routes.php');
 ?>

@@ -1,4 +1,7 @@
 <?php
+
+use Libs\Model;
+
 class UserModel extends Model
 {
     private $id;

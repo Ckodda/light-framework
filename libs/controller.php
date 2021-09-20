@@ -2,6 +2,7 @@
 /**
  *  CLASE CONTROLLER PADRE 
  */
+namespace Libs;
 class Controller
 {
     function __construct()

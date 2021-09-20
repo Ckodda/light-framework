@@ -1,8 +1,11 @@
 <?php
+
+use Libs\Controller;
+
 require_once ('libs/Router/RouteNotFoundException.php');
 require_once ('libs/Router/Route.php');
 require_once ('libs/Router/Router.php');
-$router  = new Router\Router('/'.PROJECT_NAME);
+$router  = new Router\Router(PROJECT_NAME);
 $router->add('/',function(){
     //Instance Object Controller
     $MasterController = new Controller();

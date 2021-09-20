@@ -1,4 +1,7 @@
 <?php
+
+use Libs\Controller;
+
 /**
  * CLASE SessionController Hijo de clase padre Controller ///USAR extends SessionController en los controladores hijos si es que la seccion debe ser administrada por la sesion
  * DURANTE LA PETICION AJAX NO PUEDEN HABER 
@@ -13,14 +16,16 @@ class SessionController extends Controller
     protected $role;
     protected $sites;
     protected $defaultSites;
-
+    protected $keyUrl=2;
     protected $url;
 
     public function __construct()
     {
         parent::__construct();
         $this->start();
-        
+        if(PROJECT_NAME==""){
+            $this->keyUrl=1;
+        }
         if($this->session->existsUserSession()){ $this->view->sessionValidate = true;}else{$this->view->sessionValidate = false;}
         
     }
@@ -39,7 +44,7 @@ class SessionController extends Controller
         //Ubicando URL actual
         $this->url = trim("$_SERVER[REQUEST_URI]");
         $this->url = explode("/",$this->url);
-        $this->url = $this->url[2]; // localhost/chinawok/url[2]
+        $this->url = $this->url[$this->keyUrl]; // localhost/chinawok/url[2]
         $this->url = preg_replace("/\?.*/","",$this->url);
 
         //validar session existente $_SESSION['user']
@@ -65,7 +70,7 @@ class SessionController extends Controller
 
 
 
-            error_log("Rol actual es : ".$this->role);
+            //error_log("Rol actual es : ".$this->role);
             
             //Recorriendo archivo access.json 
             for($i=0;$i<sizeof($this->sites);$i++){
@@ -150,7 +155,7 @@ class SessionController extends Controller
 
         //error_log("Redirigiendo a ".$url);
 
-        header("Location:".constant('url').$url);
+        header("Location:".constant('url').$url."/",TRUE,301);
 
     }
 

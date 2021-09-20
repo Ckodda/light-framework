@@ -1,5 +1,7 @@
 <?php
-require_once ('Smarty/libs/Smarty.class.php');
+namespace Libs;
+use Smarty;
+
 class View
 {
     public $meta= [];
@@ -7,23 +9,17 @@ class View
     function __construct()
     {
         
-        $this->smarty = new Smarty();
-        $this->smarty->template_dir = "./views.smarty";
-        //$smarty->config_dir = "./configs";
-        $this->smarty->cache_dir = "./cache";
-        $this->smarty->compile_dir = "./views.compiled";
-        //Minificando salida
-        $this->smarty->loadFilter('output', 'trimwhitespace');
-        $this->smarty->assign('URL',URL);
+
     }
 
     function renderView($nombre,$data=[])
     {
-        
-        foreach($data as $d){
-            $this->smarty->assign($d[0],$d[1]);
+
+        foreach ($data as $key => $d){
+            $$key = $d;
         }
-        $this->smarty->display($nombre);   
+        require 'views/'.$nombre.'.php';
+
     }
 
     function renderHeader($meta=[]){
