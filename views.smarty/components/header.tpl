@@ -1,1 +1,0 @@
-<link rel="stylesheet" href="{$URL}src/css/tailwind.min.css" />
